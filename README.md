@@ -21,3 +21,10 @@ get the
     terrafrom plan <verify the output and procced to apply>
    
     terraform apply <give yes to  resource clearting>
+
+#Mediawiki applicaiton deployment 
+  
+   the kubernets manifest files should be applied under challenge2 path to deploy the DB and Mediawiki app
+   applicate url : http://20.241.217.119/index.php/Main_Page
+   
+#CI/CD plan in progress.

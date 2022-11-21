@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: mem-cpu-demo
+  namespace: test-rs
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-a
+  namespace: test-rs
+spec:
+  containers:
+  - name: quota-mem-cpu-demo-ctr
+    image: nginx
+    resources:
+      limits:
+        memory: "400Mi"
+        cpu: "80m"
+      requests:
+        memory: "200Mi"
+        cpu: "40m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-b
+  namespace: test-rs
+spec:
+  containers:
+  - name: quota-mem-cpu-demo-ctr
+    image: nginx
+    resources:
+      limits:
+        memory: "200Mi"
+        cpu: "80m"
+      requests:
+        memory: "100Mi"
+        cpu: "40m"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-c
+  namespace: test-rs
+spec:
+  containers:
+  - name: quota-mem-cpu-demo-ctr
+    image: nginx
+    resources:
+      limits:
+        memory: "400Mi"
+        cpu: "80m"
+      requests:
+        memory: "200Mi"
+        cpu: "40m"

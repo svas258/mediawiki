@@ -1,6 +1,6 @@
-#To setup AKS cluster with Azurecli and terraform
+# To setup AKS cluster with Azurecli and terraform
 
-##Azure cli steps 
+## Azure cli steps 
 az login
 
 az account list
@@ -22,12 +22,12 @@ get the
    
     terraform apply <give yes to  resource clearting>
 
-#Mediawiki applicaiton deployment 
+## Mediawiki applicaiton deployment 
   
    the kubernets manifest files should be applied under challenge2 path to deploy the DB and Mediawiki app
    applicate url : http://20.241.217.119/index.php/Main_Page
    
-#CI/CD plan: In-progress
+## CI/CD plan: In-progress
 
        Applicaiton & DB yaml's can be defined in helmcharts to define better CI/CD plan. 
        

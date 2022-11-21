@@ -13,7 +13,11 @@ get the
 
 ## create cluster with terraform 
    got the mediawiki/Azure
+    
    update the terraform.tfvars files with required values
-   terrafrom init <to download the azurerm providers>
-   terrafrom plan <verify the output and procced to apply>
-   terraform apply <give yes to  resource clearting>
+   
+    terrafrom init <to download the azurerm providers>
+   
+    terrafrom plan <verify the output and procced to apply>
+   
+    terraform apply <give yes to  resource clearting>

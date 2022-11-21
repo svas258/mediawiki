@@ -12,7 +12,7 @@ get the
     client_id,client_secret,tenant_id,subscription_id and pass the values to terraform.tfvars file.
 
 ## create cluster with terraform 
-   got the mediawiki/Azure
+   go to the mediawiki/Azure the cluster and nginx/ingress controller will be setup.
     
    update the terraform.tfvars files with required values
    
@@ -27,4 +27,10 @@ get the
    the kubernets manifest files should be applied under challenge2 path to deploy the DB and Mediawiki app
    applicate url : http://20.241.217.119/index.php/Main_Page
    
-#CI/CD plan in progress.
+#CI/CD plan: In-progress
+
+       Applicaiton & DB yaml's can be defined in helmcharts to define better CI/CD plan. 
+       
+       Tools are in concidration : Arogcd/Gitlabs/AzureDevops
+   
+            

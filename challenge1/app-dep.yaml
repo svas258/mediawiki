@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mediawiki-app
+  namespace: mediawiki
+spec:
+  selector:
+    matchLabels:
+      app: mediawiki-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mediawiki-app
+    spec:
+      containers:
+        - name: mediawiki-container
+          image: mediawiki
+          volumeMounts:
+            - mountPath: /var/www/html/images
+              name: mediawiki-volume
+            - mountPath: /var/www/html/LocalSettings.php
+              name: mediawiki-localsettings
+              subPath: LocalSettings.php
+            - mountPath: /var/www/html/test-csv.csv
+              name: mediawiki-csv
+              subPath: test-csv.csv
+          ports:
+            - containerPort: 80
+      volumes:
+        - name: mediawiki-volume
+        - name: mediawiki-localsettings
+          configMap:
+                    name: mediawiki-local
+        - name: mediawiki-csv
+          configMap:
+                    name: mediawiki-csv
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mediawiki-srv
+  namespace: mediawiki
+  labels:
+    app: mediawiki-app
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      protocol: TCP
+  selector:
+    app: mediawiki-app
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   name: mediawiki-ing
+   namespace: mediawiki
+   annotations:
+      # nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      # nginx.ingress.kubernetes.io/use-regex: "true"
+      # nginx.ingress.kubernetes.io/rewrite-target: /$2
+      # kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  ingressClassName: nginx
+  rules:
+  # - host: aks.53401bb547a742379027.eastus.aksapp.io
+  - http:
+       paths:
+       - path: /
+         pathType: Prefix
+         backend:
+            service:
+               name: mediawiki-srv
+               port:
+                 number: 80

@@ -31,3 +31,6 @@
         Image scanner tools can be configued to scan the images which are used in the kubernets cluster. Example Aqua. 
         
         
+
+#### Referance 
+      https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service

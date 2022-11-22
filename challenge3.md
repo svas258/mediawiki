@@ -1,4 +1,6 @@
-# Container CI/CD using jeknins in AKS
+# Container CI/CD using jeknins in AKS 
+
+  (There will be always many other ways/options to achieve CI/CD to Container. it can be discussed futher. )
 
    ![flow, Diagrame](https://github.com/svas258/mediawiki/blob/2be7e54ba467cefac44e53ae6f3b7c61c9469e35/Screenshot%202022-11-22%20at%2012.04.52%20PM.png)
 

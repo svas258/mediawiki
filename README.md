@@ -40,7 +40,7 @@ get the
    
    for Producation where there is no need of CD. We can implement with manual CD part here with kub8 manifest yaml's integrating form SCM. 
    
-   ###Logging & Monitoing Part: 
+   ### Logging & Monitoing Part: 
     
             Splunk for kubenrnets can used for the log https://github.com/splunk/splunk-connect-for-kubernetes 
     

@@ -24,13 +24,24 @@ get the
 
 ## Mediawiki applicaiton deployment 
   
-   the kubernets manifest files should be applied under challenge2 path to deploy the DB and Mediawiki app
+   The kubernets manifest files should be applied under challenge2 path to deploy the DB and Mediawiki app
    applicate url : http://20.241.217.119/index.php/Main_Page
    
-## CI/CD plan: In-progress
+## Security & Best practices 
+   Azure AD and rolse can created for developers. Based on the roles the Azure api access can be limited. 
+   
+   If the Namespace itself should be handled by development team, they create multiple namespace under the main namesapce it can be achieved by HNC (https://github.com/kubernetes-sigs/hierarchical-namespaces). 
+   
+   Each resoruces AKS cluster & storage should be created with customer encription key. The keys can be manged in AZure key valut. (keys can be roated based requirment) 
+   
+   Opensource Terraform statefile should be maninted in Azure storage with locking state (https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli).
+   
+   Enterprice TF manages the statefile and workespace. We can configure it from console. 
+   
+   for Producation where there is no need of CD. We can implement with manual CD part here with kub8 manifest yaml's integrating form SCM. 
+   
+   
 
-       Applicaiton & DB yaml's can be defined in helmcharts to define better CI/CD plan. 
        
-       Tools are in concidration : Arogcd/Gitlabs/AzureDevops
    
             

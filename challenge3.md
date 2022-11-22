@@ -1,6 +1,6 @@
 # Container CI/CD using jeknins in AKS
 
-   ![flow, Diagrame](https://github.com/svas258/mediawiki/blob/2be7e54ba467cefac44e53ae6f3b7c61c9469e35/Screenshot%202022-11-22%20at%2012.04.52%20PM.png))
+   ![flow, Diagrame](https://github.com/svas258/mediawiki/blob/2be7e54ba467cefac44e53ae6f3b7c61c9469e35/Screenshot%202022-11-22%20at%2012.04.52%20PM.png)
 
 
 
@@ -13,9 +13,11 @@
       4. Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.
       5. Jenkins builds and pushes Docker container to Azure Container Registry.
       
-     ## CD with Argocd: 
-        (ArgoCD can be configured in the same cluster or will have no of cluster to be managed by argocd. 
-         It can be configured in seprate cluster and it should be provided access to other cluster API's to apply the kubernets resoruces.)
+![flow, Diagrame](https://github.com/svas258/mediawiki/blob/c7beecff27555d29f421349b8033ea439864d4b9/Screenshot%202022-11-22%20at%201.14.17%20PM.png)
+     ## CD with Argocd:
+   
+        ArgoCD can be configured in the same cluster or will have no of cluster to be managed by argocd. 
+         It can be configured in seprate cluster and it should be provided access to other cluster API's to apply the kubernets resoruces.
          Mediawiki & DB yamls will be genterated from  helm charts to upload the helm template to Azure artifact registry to pick by Argocd and initate the CD process in the cluster. 
       
       1. Update helm value files and commit
